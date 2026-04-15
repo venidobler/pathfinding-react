@@ -1,73 +1,25 @@
-# React + TypeScript + Vite
+# Visualizador de Algoritmos de Pathfinding (React Edition) ⚛️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma das frentes de um **estudo comparativo de performance** entre frameworks front-end. O objetivo é visualizar o funcionamento de algoritmos de busca (BFS, A*) em uma malha interativa de 800 nós.
 
-Currently, two official plugins are available:
+## 🧪 O Experimento
+Esta versão foi construída utilizando **React 19** para testar como o motor de **Virtual DOM** lida com atualizações de estado de alta frequência. Em uma grid de pathfinding, cada movimento do mouse para "pintar" paredes ou cada passo do algoritmo exige que a interface reaja instantaneamente.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Observações Técnicas (React):
+- **Gerenciamento de Estado:** Utiliza `useState` para a malha complexa.
+- **Renderização:** O desafio aqui é a "reconciliação". Como o React trabalha com uma cópia da árvore de componentes, atualizar 800 nós simultaneamente permite observar o custo computacional do Virtual DOM em comparação com abordagens nativas.
+- **Tailwind v4:** Implementação de estilos moderna e ultra-leve sem arquivos de configuração externos.
 
-## React Compiler
+## 🛠️ Tecnologias
+- **Framework:** React 19 (Vite)
+- **Linguagem:** TypeScript
+- **Estilização:** Tailwind CSS v4
+- **Algoritmos:** BFS (Breadth-First Search) e A* (A-Star)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🏁 Como rodar
+1. Clone o repositório
+2. Instale as dependências: `npm install`
+3. Inicie o servidor: `npm run dev`
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+> **Nota de Estudo:** Confira a versão deste mesmo projeto feita em [Svelte 5](https://github.com/venidobler/pathfinding-visualizer) para comparar a fluidez da reatividade nativa vs Virtual DOM.

@@ -14,7 +14,7 @@ Esta versão foi construída utilizando **React 19** para testar como o motor de
 - **Framework:** React 19 (Vite)
 - **Linguagem:** TypeScript
 - **Estilização:** Tailwind CSS v4
-- **Algoritmos:** BFS (Breadth-First Search) e A* (A-Star)
+- **Algoritmos:** BFS (Busca em Largura), A* (A-Star) e DFS (Busca em Profundidade).
 
 ## 🏁 Como rodar
 1. Clone o repositório
